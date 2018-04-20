@@ -2,5 +2,20 @@
 	<head>Todo Stack</head>
 	<body>
 		<h1>Your todo list...</h1>
+		<form action="" method="post">
+			{{ form.hidden_tag() }}
+				{{ form.task }}
+				<br>
+				{{ form.submit() }}
+		</form>
+		{% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
 	</body>
 </html>
